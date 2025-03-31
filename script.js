@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+        e.preventDefault();
             const targetId = this.getAttribute('href');
             
             if (targetId === '#') return;
@@ -38,20 +38,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Initialize the in-view animation for sections
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
-            }
-        });
-    }, observerOptions);
-    
+        }
+    });
+}, observerOptions);
+
     // Observe all sections for animation
     document.querySelectorAll('section').forEach(section => {
         observer.observe(section);
